@@ -1,19 +1,10 @@
 "use client"
 
-import type { Metadata } from "next";
 import { ebGaramond, helveticaNeue } from "./ui/fonts/fonts";
 import "./globals.css";
-import { useState, createContext } from 'react';
-import Nav from "./ui/nav";
-import Toolbar from "./ui/toolbar";
-
-export const ToolbarContext = createContext<{
-  expanded: boolean;
-  setExpanded: (value: boolean) => void;
-}>({
-  expanded: false,
-  setExpanded: () => {},
-});
+import { useState } from 'react';
+import { ToolBarContext } from "./context/ToolBarContext";
+import Nav from "./ui/Nav";
 
 export default function RootLayout({
   children,
@@ -27,16 +18,10 @@ export default function RootLayout({
       <body
         className={`${ebGaramond.variable} ${helveticaNeue} antialiased`}
       >
-        <Nav />
-        <ToolbarContext.Provider value={{ expanded, setExpanded }}>
+        <ToolBarContext.Provider value={{ expanded, setExpanded }}>
+          <Nav />
           {children}
-        </ToolbarContext.Provider>
-        <div className="flex justify-center ">
-          <Toolbar
-            expanded={expanded}
-            setExpanded={setExpanded}
-          />
-        </div>
+        </ToolBarContext.Provider>
       </body>
     </html>
   );

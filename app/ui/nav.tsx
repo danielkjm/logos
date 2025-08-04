@@ -1,10 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ToolBarContext } from "../context/ToolBarContext";
 import { ebGaramond, helveticaNeue } from "./fonts/fonts";
+import { useContext } from 'react'
 
 export default function Nav() {
+  const { setExpanded } = useContext(ToolBarContext)
   return (
-    <div className="flex justify-between items-center w-full h-24 sticky top-0 px-32 bg-white">
+    <div
+      className="flex justify-between items-center w-full h-24 sticky top-0 px-32 bg-white"
+      onClick={() => setExpanded(false)}
+    >
       <Link href="/" className={`${ebGaramond.className} font-bold`}>
         LOGOS
       </Link>

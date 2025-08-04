@@ -1,8 +1,9 @@
 'use client'
 
 import Image from "next/image";
-import { useContext } from "react";
-import { ToolbarContext } from "./layout";
+import { useContext, useState } from "react";
+import { ToolBarContext } from "./context/ToolBarContext";
+import { ToolBarWrap, ToolBarItems, ToolBarContent } from "./ui/toolbar";
 
 const browseArticles = [
   {
@@ -36,38 +37,52 @@ const browseArticles = [
   },
 ]
 
-export default function Home() {
-  const { setExpanded } = useContext(ToolbarContext);
+export default function Browse() {
+  const { expanded, setExpanded } = useContext(ToolBarContext);
+  const [header, setHeader] = useState('');
 
   return (
-    <div className="flex flex-col p-16 w-full justify-between" onClick={() => setExpanded(false)}>
-      <div className="flex justify-between pl-20 font-bold mb-16">
-        <h1 className="text-7xl">BROWSE</h1>
-      </div>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-32">
-        {
-          browseArticles.map((article) => {
-            return (
-              <div className={`flex flex-col ${article.title.length % 2 !== 0 ? 'pt-4' : ''}`}  key={article.id}>
-                <div className="w-full flex flex-col items-center">
-                  <div>
-                    <Image 
-                      src={`${article.imageUrl}`}
-                      width={article.width}
-                      height={100}
-                      alt="Article Image"
-                      style={{ maxHeight: "400px" }}
-                    />
-                    <h3 className="mt-4 text-base font-normal">
-                      {article.title}
-                    </h3>
+    <>
+      <div className="flex flex-col p-16 w-full justify-between" onClick={() => setExpanded(false)}>
+        <div className="flex justify-between pl-20 font-bold mb-16">
+          <h1 className="text-7xl">BROWSE</h1>
+        </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-32">
+          {
+            browseArticles.map((article) => {
+              return (
+                <div className={`flex flex-col ${article.title.length % 2 !== 0 ? 'pt-4' : ''}`}  key={article.id}>
+                  <div className="w-full flex flex-col items-center">
+                    <div>
+                      <Image 
+                        src={`${article.imageUrl}`}
+                        width={article.width}
+                        height={100}
+                        alt="Article Image"
+                        style={{ maxHeight: "400px" }}
+                      />
+                      <h3 className="mt-4 text-base font-normal">
+                        {article.title}
+                      </h3>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
+      <ToolBarWrap
+        expanded={expanded}
+      >
+        {
+          expanded ? (
+            <ToolBarContent header={header}/>
+          ) : (
+            <ToolBarItems items={["Categories", "Chat"]} setHeader={setHeader}/>
+          )
+        }
+      </ToolBarWrap>
+    </>
   );
 }
