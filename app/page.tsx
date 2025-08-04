@@ -1,7 +1,8 @@
 'use client'
 
 import Image from "next/image";
-// import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { ToolbarContext } from "./layout";
 
 const browseArticles = [
   {
@@ -36,10 +37,12 @@ const browseArticles = [
 ]
 
 export default function Home() {
+  const { setExpanded } = useContext(ToolbarContext);
+
   return (
-    <div className="flex flex-col p-16 w-full justify-between">
+    <div className="flex flex-col p-16 w-full justify-between" onClick={() => setExpanded(false)}>
       <div className="flex justify-between pl-20 font-bold mb-16">
-        <h1 className="text-8xl">CULTURE</h1>
+        <h1 className="text-7xl">BROWSE</h1>
       </div>
       <div className="grid grid-cols-2 gap-x-6 gap-y-32">
         {

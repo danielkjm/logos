@@ -18,6 +18,8 @@ export const ebGaramond = EB_Garamond({
 
 export const helveticaNeue = localFont({
   src: [
-    { path: "./HelveticaNeue-Medium.woff2", weight: "400", style: "normal" },
+    { path: "./HelveticaNeue-Light.woff2", weight: "100", style: "light" },
+    { path: "./HelveticaNeue-Roman.woff", weight: "200", style: "normal" },
+    { path: "./HelveticaNeue-Medium.woff2", weight: "400", style: "medium" },
   ]
 });

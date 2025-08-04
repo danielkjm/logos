@@ -16,6 +16,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-soft-black: #252525;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

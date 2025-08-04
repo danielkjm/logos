@@ -16,15 +16,17 @@ export default function Nav() {
           TODAY
         </Link>
       </div>
-      <Link href="/profile">
-        <Image
-          src="/profile.png"
-          alt="Profile"
-          width="40"
-          height="40"
-          className="rounded-full"
-        />
-      </Link>
+      <div className={`flex items-center ${helveticaNeue.className} text-xs font-normal gap-4`}>
+        <Link href="/profile">
+          <Image
+            src="/profile.png"
+            alt="Profile"
+            width="40"
+            height="40"
+            className="rounded-full"
+          />
+        </Link>
+      </div>
     </div>
   );
 }
