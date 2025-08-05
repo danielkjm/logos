@@ -79,7 +79,14 @@ export default function Browse() {
           expanded ? (
             <ToolBarContent header={header}/>
           ) : (
-            <ToolBarItems items={["Categories", "Chat"]} setHeader={setHeader}/>
+            <ToolBarItems
+              items={[
+                { name: "Categories", icon: "" },
+                { name: "Chat", icon: "/convo.png" },
+                { name: "Shelf", icon: "/shelf.png" },
+              ]}
+              setHeader={setHeader}
+            />
           )
         }
       </ToolBarWrap>

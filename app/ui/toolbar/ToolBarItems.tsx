@@ -5,7 +5,10 @@ import { helveticaNeue, ebGaramond } from "../fonts/fonts";
 import { ToolBarContext } from "../../context/ToolBarContext";
 
 
-export default function ToolBarItems({ items, setHeader }: { items: string[], setHeader: (header: string) => void }) {
+export default function ToolBarItems({ items, setHeader }: {
+  items: { name: string, icon: string }[],
+  setHeader: (header: string) => void;
+})  {
   const { expanded, setExpanded } = useContext(ToolBarContext)
   
   const handleItemClick = (item: string) => {
@@ -29,13 +32,24 @@ export default function ToolBarItems({ items, setHeader }: { items: string[], se
           return (
             <motion.span
               className={`${helveticaNeue.className} text-sm text-white cursor-pointer`}
-              onClick={() => handleItemClick(item)}
+              onClick={() => handleItemClick(item.name)}
               initial={{ opacity: 1 }}
               animate={{ opacity: expanded ? 0 : 1 }}
               transition={{ duration: 0.2 }}
-              key={item}
+              key={item.name}
             >
-              {item}
+              {
+                item.icon.length ? (
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width="18"
+                    height="18"
+                  />
+                ) : (
+                  item.name
+                )
+              }
             </motion.span>
           )
         })
