@@ -1,6 +1,6 @@
 import postgres from 'postgres';
 import { NextResponse } from 'next/server';
-import { categories } from '../lib/seed-data.js';
+import { categories } from '../lib/seed-data';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
