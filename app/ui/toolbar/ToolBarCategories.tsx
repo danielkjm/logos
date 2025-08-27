@@ -6,9 +6,10 @@ import { helveticaNeue } from "../fonts/fonts";
 // import { desc } from "motion/react-client";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function ToolBarCategories() {
+export default function ToolBarCategories({ setCategories } : { setCategories: (categories: any) => void }) {
   // const { expanded, setExpanded } = useContext(ToolBarContext);
 
+  console.log(setCategories)
   return (
     <div className="flex-col justify-between h-full w-full mt-12">
       <div className={`${helveticaNeue.className} grid grid-cols-8 gap-8 content-center mb-8 font-bold text-sm `}>
