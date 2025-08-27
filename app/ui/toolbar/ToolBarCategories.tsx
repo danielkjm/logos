@@ -6,7 +6,7 @@ import { helveticaNeue } from "../fonts/fonts";
 // import { desc } from "motion/react-client";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function ToolBarCategories({ setCategories } : { setCategories: (categories: any) => void }) {
+export default function ToolBarCategories() {
   // const { expanded, setExpanded } = useContext(ToolBarContext);
 
   return (
