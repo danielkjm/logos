@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 
-export default function ToolBarWrap({ expanded, children }: {
+export default function ToolBarWrap({ expanded, children } : {
   expanded: boolean;
   children: React.ReactNode;
 }) {

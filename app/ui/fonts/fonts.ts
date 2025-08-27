@@ -21,5 +21,6 @@ export const helveticaNeue = localFont({
     { path: "./HelveticaNeue-Light.woff2", weight: "100", style: "light" },
     { path: "./HelveticaNeue-Roman.woff", weight: "200", style: "normal" },
     { path: "./HelveticaNeue-Medium.woff2", weight: "400", style: "medium" },
+    { path: "./HelveticaNeue-Bold.woff2", weight: "700", style: "bold" },
   ]
 });

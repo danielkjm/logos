@@ -3,35 +3,39 @@
 import Image from "next/image";
 import { useContext, useState } from "react";
 import { ToolBarContext } from "./context/ToolBarContext";
-import { ToolBarWrap, ToolBarItems, ToolBarContent } from "./ui/toolbar";
+import { ToolBarWrap, ToolBarItems, ToolBarContent, ToolBarCategories } from "./ui/toolbar";
 
 const browseArticles = [
   {
     id: 1,
-    title: "Understanding React",
+    title: "Timeless Lines: The Enduring Influence of Mid-Century Modern Design",
     description: "A deep dive into React's architecture and features.",
+    category: "Interior Design",
     imageUrl: "/pottery-4.png",
     width: 600,
   },
     {
     id: 2,
-    title: "JavaScript ES2023 Features",
+    title: "The Story on the Street",
     description: "Exploring the latest features in JavaScript ES2023.",
+    category: "Photography",
     imageUrl: "/grandma-4.png",
     width: 450,
   },
 
     {
     id: 3,
-    title: "JavaScript ES2023 Features",
+    title: "Savoring the Seasons: A Culinary Journey Through Seasonal Ingredients",
     description: "Exploring the latest features in JavaScript ES2023.",
+    category: "Gastronomy",
     imageUrl: "/ongi.png",
     width: 450,
   },
     {
     id: 4,
-    title: "Next.js for Beginners",
+    title: "AI Predictions",
     description: "Getting started with Next.js and its powerful features.",
+    category: "Technology",
     imageUrl: "/fruit-4.png",
     width: 600,
   },
@@ -40,6 +44,8 @@ const browseArticles = [
 export default function Browse() {
   const { expanded, setExpanded } = useContext(ToolBarContext);
   const [header, setHeader] = useState('');
+  const [categories, setCategories] = useState([]);
+
 
   return (
     <>
@@ -77,7 +83,9 @@ export default function Browse() {
       >
         {
           expanded ? (
-            <ToolBarContent header={header}/>
+            <ToolBarContent header={header}>
+              <ToolBarCategories setCategories={setCategories} />
+            </ToolBarContent>
           ) : (
             <ToolBarItems
               items={[

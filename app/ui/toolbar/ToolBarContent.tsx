@@ -3,7 +3,11 @@ import { motion } from "motion/react";
 import { useContext } from "react";
 import { ToolBarContext } from "../../context/ToolBarContext";
 
-export default function ToolBarContent({ header } : { header: string }) {
+export default function ToolBarContent({ header, children } :
+  {
+    header: string;
+    children: React.ReactNode;
+  }) {
   const { expanded, setExpanded } = useContext(ToolBarContext);
 
   return (
@@ -32,7 +36,7 @@ export default function ToolBarContent({ header } : { header: string }) {
         </div>
       </div>
       <div className="text-white">
-        {/* ------- */}
+        { children }
       </div>
     </div>
   )
