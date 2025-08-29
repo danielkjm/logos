@@ -47,7 +47,6 @@ export default function Browse() {
   const [categories, setCategories] = useState([]);
 
 
-  console.log('categories', categories);
   return (
     <>
       <div className="flex flex-col p-16 w-full justify-between" onClick={() => setExpanded(false)}>
